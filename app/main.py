@@ -126,11 +126,8 @@ def PineconeSetup():
         print("Index exists: " + index_name)
 
 
-def main():
+def create_app():
     load_dotenv()
     PineconeSetup()
-    app.run(port=os.getenv('PORT') or 5000, debug=True, threaded=True)
-
-
-if __name__ == '__main__':
-    main()
+    # app.run(port=os.getenv('PORT') or 5000, debug=True, threaded=True)
+    return app
