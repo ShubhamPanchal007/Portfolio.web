@@ -159,9 +159,9 @@ def _chain():
         data = request.json
         print(data) 
         query = data["query"]
-        return Response(chain(f"{query}\n\n"), mimetype='text/event-stream')
+        return Response(chain(f"{query}\n\n"), content_type="text/event-stream", headers={'X-Accel-Buffering': 'no'})
     else:
-        return Response(chain(f"what would be your most loved change in this world?\n\n"), mimetype='text/event-stream')
+        return Response(chain("what would be your most loved change in this world?\n\n"), mcontent_type="text/event-stream", headers={'X-Accel-Buffering': 'no'})
 
 def PineconeSetup():
     pinecone.init(
